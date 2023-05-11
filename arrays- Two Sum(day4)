@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  int arr[] = {2,11,7,15};
+  int n = sizeof(arr)/sizeof(arr[0]);
+  int target = 9;
+
+  unordered_map<int,int> hmap;
+  for(int i =0; i<n; i++)
+    {
+      if(hmap.find(target-arr[i])!=hmap.end())
+      {
+        cout<<"the elements are found at index - ";
+        cout<<hmap[target-arr[i]]<<", "<<i;
+      }
+      hmap[arr[i]] = i;
+    }
+  
+  return 0;
+}
