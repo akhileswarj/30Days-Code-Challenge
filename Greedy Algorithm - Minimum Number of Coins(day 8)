@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+  int coin[] = {1,2,5,10,20,50,100,500,1000};
+  int n = sizeof(coin)/sizeof(coin[0]);
+  int value = 48;
+
+  for(int i = n-1; i>=0; i--)
+  {
+    while(value >= coin[i]){
+      value -= coin[i];
+      cout<<coin[i]<<" ";
+    }
+  }
+  
+  return 0;
+}
