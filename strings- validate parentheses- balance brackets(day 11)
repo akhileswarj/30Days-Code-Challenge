@@ -1,0 +1,49 @@
+#include<iostream>
+#include<stack>            //or just #include<bits/stdc++> for both
+using namespace std;
+
+int main()
+{
+  string s = "()[{}()]";      //change the strings to check notvalid types
+  stack<char> st;
+
+  for(int i=0; i<s.length(); i++)
+  {
+    if(s[i] == '(' || s[i] == '[' || s[i] == '{')
+    {
+      st.push(s[i]);
+    }
+    else
+    {
+      if(st.size() == 0)
+      {
+        cout<<"Not valid0";
+        exit(0);
+      }
+
+      char ch;
+      ch = st.top();
+      st.pop();
+
+      if(s[i] == ')' and ch == '('
+        or s[i] == ']' and ch == '['
+        or s[i] == '}' and ch =='{' )
+      {
+          continue;
+      }
+      else
+      {
+          cout<<"Not valid1";
+          exit(0);
+      } 
+   }
+  }
+
+if(st.empty())
+    cout<<"valid";
+else
+    cout<<"Not valid2";
+
+
+  return 0;
+}
