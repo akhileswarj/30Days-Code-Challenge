@@ -1,0 +1,33 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+
+int main()
+{
+  int arr[] = {12, 7, 6, 10, 15};
+  int n = sizeof(arr)/sizeof(arr[0]);
+  int ans[n];
+  for(int i=0; i<n; i++){
+    ans[i] = -1;
+  }
+
+  stack<int> st;
+  st.push(0);
+
+  for(int i=1; i<n; i++)
+  {
+    while(!st.empty() && arr[st.top()] < arr[i])
+    {
+      ans[st.top()] = arr[i];
+      st.pop();
+    }
+    st.push(i);
+  }
+
+  for(int i = 0; i<n; i++)
+    {
+      cout<<ans[i]<<" ";
+    }
+
+  return 0;
+}
