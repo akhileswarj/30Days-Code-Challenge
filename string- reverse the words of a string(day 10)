@@ -1,0 +1,42 @@
+//reverse words in a string
+#include<iostream>
+using namespace std;
+
+int main()
+{
+  string str = "vamsi bhavani youtube channel";
+  int n = str.length();
+
+  string temp = "";
+  string reverse = "";
+
+  for(int i=0; i<n; i++)
+  {
+    char c = str[i];
+    if(c != ' '){
+      temp += c;
+    }
+    else if(c == ' ')
+    {
+      if(reverse != ""){
+        reverse = temp + " " + reverse;
+      }
+      else if (reverse == ""){
+        reverse = temp;
+      }
+      temp = "";
+    }
+  }
+
+  if(temp != "")
+  {
+    if(reverse != "")
+      reverse = temp + " " + reverse;
+    else
+      reverse = temp;
+  }
+
+  cout<<reverse;
+  
+  return 0;
+}
