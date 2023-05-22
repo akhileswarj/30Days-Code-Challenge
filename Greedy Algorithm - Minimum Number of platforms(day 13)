@@ -1,0 +1,36 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+int main()
+{
+  int arr[] = {900,945,955,1100,1500,1800};
+  int dep[] = {920,1200,1130,1150,1900,2000};
+  int n = 6;
+
+  sort(arr, arr+n);
+  sort(dep, dep+n);
+
+  int ans = 1;
+  int count = 1;
+  int i=1, j=0;
+
+  while(i<n && j<n)
+  {
+    if(arr[i] <= dep[j])
+    {
+      count++;
+      i++;
+      ans = max(ans, count);
+    }
+    else
+    {
+      count--;
+      j++;
+    }
+  }
+
+  cout<<ans;
+  
+  return 0;
+}
