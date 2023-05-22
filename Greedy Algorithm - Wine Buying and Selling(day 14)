@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  int buy = 0;
+  int sell = 0;
+  int cost = 0;
+  int arr[] = {5, -4, 1, -3, 1};
+  int n = 5;
+
+  while(buy<n && sell<n)
+  {
+    if(arr[buy] <= 0){
+      buy++;
+      if(buy == n)
+        break;
+    }
+    if(arr[sell] >= 0){
+      sell++;
+      if(sell == n)
+        break;
+    }
+    if(abs(arr[buy]) >= abs(arr[sell]))
+    {
+      cost = cost + abs(buy - sell)*abs(sell);
+      arr[buy] = arr[buy] + arr[sell];
+      arr[sell] = 0;
+    }
+    else
+    {
+      cost = cost + abs(buy - sell)*abs(buy);
+      arr[sell] = arr[sell] + arr[buy];
+      arr[buy] = 0;
+    }
+  }
+  
+  cout<<cost;
+
+  return 0;
+}
