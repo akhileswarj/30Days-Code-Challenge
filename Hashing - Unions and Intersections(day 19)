@@ -1,0 +1,43 @@
+#include<iostream>
+#include<unordered_set>
+using namespace std;
+
+int main()
+{
+  int arr1[] = {1, 4, 5, 3, 7};
+  int n = sizeof(arr1)/sizeof(arr1[0]);
+  int arr2[] = {1, 2, 3, 4};
+  int m = sizeof(arr2)/sizeof(arr2[0]);
+
+  unordered_set<int> set1;
+  for(int i=0; i<n; i++)
+  {
+    set1.insert(arr1[i]);
+  }
+  for(int j=0; j<m; j++)
+  {
+    set1.insert(arr2[j]);
+  }
+
+  cout<<"count of union is "<<set1.size()<<endl;
+
+  unordered_set<int> set2;
+  int icount = 0;
+
+  for(int i=0; i<n; i++)
+  {
+    set2.insert(arr1[i]);
+  }
+  for(int i=0; i<m; i++)
+  {
+    if(set2.find(arr2[i]) != set2.end()) //or (set2.find(arr2[i]) != NULL)
+    {
+      icount++;
+      set2.erase(arr2[i]);
+    }
+  }
+
+  cout<<"count of intersection is "<<icount;
+  
+  return 0;
+}
