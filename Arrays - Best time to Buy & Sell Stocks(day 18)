@@ -1,0 +1,24 @@
+#include<iostream>
+#include<algorithm>
+#include<climits>   
+                              //or just #include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  int arr[] = {7, 1, 5, 3, 6, 4};
+  int n = sizeof(arr)/sizeof(arr[0]);
+
+  int mini = arr[0];     //or mini = INT_MAX and i can stars from 0 (i=0)
+  int profit = 0;
+
+  for(int i=1; i<n; i++)
+  {
+    mini = min(mini, arr[i]);
+    profit = max(profit, arr[i] - mini);
+  }
+
+  cout<<"maximum profit in selling stock is "<<profit;
+  
+  return 0;
+}
