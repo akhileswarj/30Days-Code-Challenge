@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+int binarySearch(int arr[], int n, int target)
+{
+  int low = 0, high = n-1, mid;
+
+  while(low <= high)
+  {
+    mid = (low+high)/2;
+    if(arr[mid] == target)
+      return mid;
+    else if(arr[mid] < target)
+      low = mid + 1;
+    else 
+      high = mid - 1;
+  }
+  return -1;
+}
+
+int main()
+{
+  cout<<"*Binary Searching*"<<endl;
+  int arr[] = {5,9,15,23,35,39,45,68,71,84,99};
+  int n = sizeof(arr)/sizeof(arr[0]);
+  int target = 68;
+  int index = binarySearch(arr, n, target);
+
+  if(index == -1)
+    cout<<"Element not found.";
+  else
+    cout<<"Element found at index: "<<index;
+  
+  return 0;
+}
